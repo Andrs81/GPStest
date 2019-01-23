@@ -1,4 +1,5 @@
-var gpsd = require('node-gpsd');
+console.log("functionas")
+/*var gpsd = require('node-gpsd');
 
 var port = 2947;
 var program = 'gpsd';
@@ -39,4 +40,4 @@ PositionBasedOnGPSD.prototype.getPosition = function() {
     return {latitude: currentLatitude, longitude: currentLongitude};
 }
 
-module.exports = PositionBasedOnGPSD;
+module.exports = PositionBasedOnGPSD;*/
