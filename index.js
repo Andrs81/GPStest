@@ -12,7 +12,7 @@ function PositionBasedOnGPSD (program, device, port) {
 
     console.log(program, device, port);
 
-    var daemon = new gpsd.Daemon({
+    /*var daemon = new gpsd.Daemon({
         port: port,
         program: program,
         device: device,//dev/ttyUSB0
@@ -33,7 +33,7 @@ function PositionBasedOnGPSD (program, device, port) {
         listener.connect(function() {
             listener.watch();
         });
-    });
+    });*/
 }
 
 //console.log(program, device, port);
