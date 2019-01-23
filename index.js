@@ -8,9 +8,7 @@ var device = '/dev/ttyUSB0';
 var currentLatitude = 0.0;
 var currentLongitude = 0.0;
 
-console.log(program, device, port);
-
-/*function PositionBasedOnGPSD (program, device, port) {
+function PositionBasedOnGPSD (program, device, port) {
 
     console.log(program, device, port);
 
@@ -38,6 +36,9 @@ console.log(program, device, port);
     });
 }
 
+//console.log(program, device, port);
+
+/*
 PositionBasedOnGPSD.prototype.getPosition = function() {
     return {latitude: currentLatitude, longitude: currentLongitude};
 }
