@@ -1,7 +1,7 @@
 
 var gpsd = require('node-gpsd');
 
-var port = 2303;
+var port = 2947;
 var program = 'gpsd';
 var device = '/dev/ttyUSB0';
 
@@ -14,6 +14,13 @@ function PositionBasedOnGPSD (program, device, port) {
     console.log(program, device, port);
 
     var daemon = new gpsd.Daemon({
+        port = 2947,
+        program = 'gpsd',
+        device = '/dev/ttyUSB0'
+    });
+    
+}
+    /*var daemon = new gpsd.Daemon({
         port: port,
         program: program,
         device: device,//dev/ttyUSB0
