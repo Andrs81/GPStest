@@ -14,11 +14,12 @@ function PositionBasedOnGPSD (program, device, port) {
     console.log(program, device, port);
 
     var daemon = new gpsd.Daemon({
-        port = 2947,
+        
         program = 'gpsd',
-        device = '/dev/ttyUSB0'
+        device = '/dev/ttyUSB0',
+        port = 2947
     });
-    
+
 }
     /*var daemon = new gpsd.Daemon({
         port: port,
