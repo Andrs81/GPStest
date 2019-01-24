@@ -16,7 +16,7 @@ function PositionBasedOnGPSD (program, device, port) {
     var daemon = new gpsd.Daemon({
         port: port,
         program: program,
-        device: device,//dev/ttyUSB0
+        device: device
     });
 /*
     daemon.start(function() {
