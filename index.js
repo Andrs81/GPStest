@@ -19,24 +19,24 @@ function PositionBasedOnGPSD (program, device, port) {
         device: device
     });
 
-    daemon.start(function() {
+    /*daemon.start(function() {
         console.log("Started");
         var listener = new gpsd.Listener({port: port});
     
         listener.on('TPV', function (tpv) {
-	    console.log(tpv);
+	        console.log(tpv);
 
-	    if (tpv.mode === 2 || tpv.mode === 3) {
-	        currentLatitude = tpv.lat;
-	        currentLongitude = tpv.lon;
-	    }
+            if (tpv.mode === 2 || tpv.mode === 3) {
+                currentLatitude = tpv.lat;
+                currentLongitude = tpv.lon;
+            }
         });
     
         listener.connect(function() {
             listener.watch();
             console.log("watching")
         });
-    });
+    });*/
 }
 /*
 
