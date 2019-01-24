@@ -18,6 +18,7 @@ function PositionBasedOnGPSD (program, device, port) {
         program: program,
         device: device
     });
+}
 /*
     daemon.start(function() {
         var listener = new gpsd.Listener({port: port});
@@ -47,4 +48,4 @@ PositionBasedOnGPSD.prototype.getPosition = function() {
 
 module.exports = PositionBasedOnGPSD;*/
 
-PositionBasedOnGPSD (program, device, port);
+PositionBasedOnGPSD (program, device, port)
