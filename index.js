@@ -19,7 +19,6 @@ function PositionBasedOnGPSD (program, device, port) {
         var listener = new gpsd.Listener({port: port});
     
         listener.on('TPV', function (tpv) {
-            console.log({"currentMode ": currentMode, "tpv.mode ": tpv.mode});
             currentMode = tpv.mode;
             
             if (tpv.mode === 2 || tpv.mode === 3) {
