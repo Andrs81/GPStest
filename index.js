@@ -42,4 +42,4 @@ PositionBasedOnGPSD.prototype.getPosition = function() {
 
 //module.exports = PositionBasedOnGPSD;
 
-//PositionBasedOnGPSD (program, device, port)
+PositionBasedOnGPSD (program, device, port)
