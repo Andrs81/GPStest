@@ -10,42 +10,29 @@ var currentLongitude = 0.0;
 
 function PositionBasedOnGPSD (program, device, port) {
 
-    /*var daemon = new gpsd.Daemon({
+    var daemon = new gpsd.Daemon({
         program: program,
         device: device,
         port: port
-    });*/
-    
-    var daemon = new gpsd.Daemon({
-        program: 'gpsd',
-        device: '/dev/ttyUSB0',
-        port: 2947
     });
-
+    
     console.log({daemon})
 
-    try {
-
-        daemon.start(function() {
-            var listener = new gpsd.Listener({port: port});
-        
-            listener.on('TPV', function (tpv) {
-                //console.log({tpv})
-                if (tpv.mode === 2 || tpv.mode === 3) {
-                    currentLatitude = tpv.lat;
-                    currentLongitude = tpv.lon;
-                }
-            });
-        
-            listener.connect(function() {
-                listener.watch();
-            });
-        });
-        
-    } catch (error) {
-        console.log({error})
-    }
+    daemon.start(function() {
+        var listener = new gpsd.Listener({port: port});
     
+        listener.on('TPV', function (tpv) {
+            //console.log({tpv})
+            if (tpv.mode === 2 || tpv.mode === 3) {
+                currentLatitude = tpv.lat;
+                currentLongitude = tpv.lon;
+            }
+        });
+    
+        listener.connect(function() {
+            listener.watch();
+        });
+    });
 }
 
 PositionBasedOnGPSD.prototype.getPosition = function() {
