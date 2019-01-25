@@ -1,7 +1,7 @@
 
 var gpsd = require('node-gpsd');
 
-var port = 2947;
+var port = 5051;
 var program = 'gpsd';
 var device = '/dev/ttyUSB0';
 
