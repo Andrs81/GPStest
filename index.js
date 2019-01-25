@@ -18,11 +18,12 @@ function PositionBasedOnGPSD (program, device, port) {
         var listener = new gpsd.Listener({port: port});
     
         listener.on('TPV', function (tpv) {
-            console.log({tpv})
+            
             if (tpv.mode === 2 || tpv.mode === 3) {
                 currentLatitude = tpv.lat;
                 currentLongitude = tpv.lon;
             }
+
         });
     
         listener.connect(function() {
@@ -38,3 +39,5 @@ PositionBasedOnGPSD.prototype.getPosition = function() {
 
 //module.exports = PositionBasedOnGPSD;
 var positionSendor = new PositionBasedOnGPSD(program, device, port)
+
+console.log({Position: positionSendor.getPosition})
