@@ -10,9 +10,6 @@ var currentLongitude = 0.0;
 
 function PositionBasedOnGPSD (program, device, port) {
 
-    console.log("program, device, port");
-    console.log(program, device, port);
-
     var daemon = new gpsd.Daemon({
         port: port,
         program: program,
@@ -24,7 +21,8 @@ function PositionBasedOnGPSD (program, device, port) {
         var listener = new gpsd.Listener({port: port});
     
         listener.on('TPV', function (tpv) {
-	        console.log(tpv);
+            console.log(tpv);
+            console.log(tpv.mode);
 
             if (tpv.mode === 2 || tpv.mode === 3) {
                 currentLatitude = tpv.lat;
