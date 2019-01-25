@@ -21,7 +21,7 @@ function PositionBasedOnGPSD (program, device, port) {
         var listener = new gpsd.Listener({port: port});
     
         listener.on('TPV', function (tpv) {
-
+            console.log({tpv})
             if (tpv.mode === 2 || tpv.mode === 3) {
                 currentLatitude = tpv.lat;
                 currentLongitude = tpv.lon;
@@ -35,12 +35,11 @@ function PositionBasedOnGPSD (program, device, port) {
         });
     });
 }
-/*
 
 PositionBasedOnGPSD.prototype.getPosition = function() {
     return {latitude: currentLatitude, longitude: currentLongitude};
 }
 
-module.exports = PositionBasedOnGPSD;*/
+//module.exports = PositionBasedOnGPSD;
 
-PositionBasedOnGPSD (program, device, port)
+//PositionBasedOnGPSD (program, device, port)
