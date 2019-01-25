@@ -36,29 +36,18 @@ function PositionBasedOnGPSD (program, device, port) {
     });
 }
 
-function getPosition(attempts) {
-    console.log("attempts: "+attempts)
-    if(currentMode === 0 || currentMode === 1){
-        
-        if(attempts > 10){
-            return {success: 0, error: "GPS device is not fixed"};
-        }
+PositionBasedOnGPSD.prototype.getPosition = function() {
 
-        getPosition(attempts + 1)
-        
-    } else {
         return {
-            mode: currentMode ,
+            mode: currentMode,
             latitude: currentLatitude, 
             longitude: currentLongitude,
             success: 1
-        };
-    }
+        }
     
 }
-PositionBasedOnGPSD.prototype.getPosition = getPosition
 
 //module.exports = PositionBasedOnGPSD;
 var positionSendor = new PositionBasedOnGPSD(program, device, port)
-let result = {Position: positionSendor.getPosition(0)}
+let result = {Position: positionSendor.getPosition()}
 console.log(result)
