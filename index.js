@@ -60,5 +60,5 @@ PositionBasedOnGPSD.prototype.getPosition = getPosition
 
 //module.exports = PositionBasedOnGPSD;
 var positionSendor = new PositionBasedOnGPSD(program, device, port)
-
-console.log({Position: positionSendor.getPosition(0)})
+let result = {Position: positionSendor.getPosition(0)}
+console.log(result)
