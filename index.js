@@ -11,7 +11,7 @@ var currentLongitude = 0.0;
 function PositionBasedOnGPSD (program, device, port) {
 
     var daemon = new gpsd.Daemon({
-
+        port
     });
     
     console.log({daemon})
