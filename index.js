@@ -13,14 +13,9 @@ function PositionBasedOnGPSD (program, device, port) {
     var daemon = new gpsd.Daemon({
         program: program,
         device: device,
-        port: port,
-        logger: {
-            info: function() {},
-            warn: console.warn,
-            error: console.error
-        }
+        port: port
     });
-
+    console.log({daemon})
     daemon.start(function() {
         var listener = new gpsd.Listener({port: port});
     
