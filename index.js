@@ -19,7 +19,7 @@ function PositionBasedOnGPSD (program, device, port) {
         var listener = new gpsd.Listener({port: port});
     
         listener.on('TPV', function (tpv) {
-            console.log(currentMode, tpv.mode);
+            console.log({"currentMode ": currentMode, "tpv.mode ": tpv.mode});
             currentMode = tpv.mode;
             
             if (tpv.mode === 2 || tpv.mode === 3) {
@@ -37,10 +37,10 @@ function PositionBasedOnGPSD (program, device, port) {
 }
 
 function getPosition(attempts) {
-    console.log(attempts)
+    console.log("attempts: "+attempts)
     if(currentMode === 0 || currentMode === 1){
         
-        if(attempts > 4){
+        if(attempts > 10){
             return {success: 0, error: "GPS device is not fixed"};
         }
 
