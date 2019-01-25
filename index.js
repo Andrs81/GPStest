@@ -36,7 +36,7 @@ function PositionBasedOnGPSD (program, device, port) {
 }
 
 function getPosition(attempts) {
-    
+    console.log(attempts)
     if(currentMode === 0 || currentMode === 1){
         
         if(attempts > 4){
