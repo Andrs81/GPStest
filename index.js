@@ -17,7 +17,6 @@ function PositionBasedOnGPSD (program, device, port) {
     });
 
     daemon.start(function() {
-        console.log("Started");
         var listener = new gpsd.Listener({port: port});
     
         listener.on('TPV', function (tpv) {
@@ -25,13 +24,11 @@ function PositionBasedOnGPSD (program, device, port) {
             if (tpv.mode === 2 || tpv.mode === 3) {
                 currentLatitude = tpv.lat;
                 currentLongitude = tpv.lon;
-                console.log(currentLatitude, currentLongitude);
             }
         });
     
         listener.connect(function() {
             listener.watch();
-            console.log("listening")
         });
     });
 }
