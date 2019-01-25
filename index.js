@@ -20,9 +20,6 @@ function PositionBasedOnGPSD (program, device, port) {
     });
 
     daemon.start(function() {
-        console.log('Started');
-    });
-    /*daemon.start(function() {
         console.log("Started");
         var listener = new gpsd.Listener({port: port});
     
@@ -37,9 +34,9 @@ function PositionBasedOnGPSD (program, device, port) {
     
         listener.connect(function() {
             listener.watch();
-            console.log("watching")
+            console.log("listening")
         });
-    });*/
+    });
 }
 /*
 
