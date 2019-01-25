@@ -32,6 +32,8 @@ function PositionBasedOnGPSD (program, device, port) {
         listener.connect(function() {
             listener.watch();
         });
+
+        console.log(listener.device());
     });
 }
 
