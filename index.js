@@ -24,21 +24,28 @@ function PositionBasedOnGPSD (program, device, port) {
 
     console.log({daemon})
 
-    daemon.start(function() {
-        var listener = new gpsd.Listener({port: port});
-    
-        listener.on('TPV', function (tpv) {
-            //console.log({tpv})
-            if (tpv.mode === 2 || tpv.mode === 3) {
-                currentLatitude = tpv.lat;
-                currentLongitude = tpv.lon;
-            }
+    try {
+
+        daemon.start(function() {
+            var listener = new gpsd.Listener({port: port});
+        
+            listener.on('TPV', function (tpv) {
+                //console.log({tpv})
+                if (tpv.mode === 2 || tpv.mode === 3) {
+                    currentLatitude = tpv.lat;
+                    currentLongitude = tpv.lon;
+                }
+            });
+        
+            listener.connect(function() {
+                listener.watch();
+            });
         });
+        
+    } catch (error) {
+        console.log({error})
+    }
     
-        listener.connect(function() {
-            listener.watch();
-        });
-    });
 }
 
 PositionBasedOnGPSD.prototype.getPosition = function() {
