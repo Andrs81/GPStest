@@ -9,7 +9,7 @@ var currentLatitude = 0.0;
 var currentLongitude = 0.0;
 
 function PositionBasedOnGPSD (program, device, port) {
-    console.log({gpsd})
+    console.log(gpsd.Daemon)
     var daemon = new gpsd.Daemon({
         program: program,
         device: device,
